@@ -16,11 +16,12 @@ query {
 }
 ***
 query {
-  content(id: "60d44f8bf3b2c21ca042dd8f"){
+  content(id: "60d597caa266066086ab7980"){
+    id
+    values
   }
 }
 ***
-content_count(site_id: String, content_name: String): Int
 query {
   content_count(site_id: "60d41b918e3ada3040be0bd5" , content_name:"tasks")
 }
