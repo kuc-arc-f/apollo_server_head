@@ -1,5 +1,11 @@
 
 
+hello
+***
+query {
+  hello() {}
+}
+
 ***
 query {
   contents(site_id: "60d41b918e3ada3040be0bd5" , content_name:"tasks") {
@@ -11,10 +17,12 @@ query {
 ***
 query {
   content(id: "60d44f8bf3b2c21ca042dd8f"){
-    id
-    name
-    values
   }
+}
+***
+content_count(site_id: String, content_name: String): Int
+query {
+  content_count(site_id: "60d41b918e3ada3040be0bd5" , content_name:"tasks")
 }
 ***
 mutation add {
@@ -38,6 +46,7 @@ mutation delete {
     id
   }
 }
+    
 ***
 
 

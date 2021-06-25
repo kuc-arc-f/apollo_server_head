@@ -7,5 +7,6 @@ export const GQL_QUERY = `
     task(id: String): Task
     contents(site_id: String, content_name: String): [Content]
     content(id: String): Content
+    content_count(site_id: String, content_name: String): Int
   }
 `;

@@ -14,6 +14,10 @@ const resolvers = {
     async content(parent, args, context, info){
       return await LibContent.get_item(args.id);
     },
+    async content_count(parent, args, context, info){
+      return await LibContent.get_count(args);
+    },
+
   },
   Mutation: {
     addContent: async (parent, args, context) => {
