@@ -8,12 +8,6 @@ import {typeDefs} from './scheme'
 const resolvers = {
   Query: {
     hello: () => 'Hello world!',
-    async tasks(){
-      return await LibTask.get_items();
-    },
-    async task(parent, args, context, info){
-      return await LibTask.get_item(args.id);
-    },
     async contents(parent, args, context, info){
       return await LibContent.get_items(args);
     },
@@ -22,25 +16,22 @@ const resolvers = {
     },
   },
   Mutation: {
-    /*
-    addTask: async (parent, args, context) => {
-      var ret = await LibTask.add_item(args)
+    addContent: async (parent, args, context) => {
+      var ret = await LibContent.add_item(args)
       return ret
     },
-    updateTask: async (parent, args, context) => {
-      var ret = await LibTask.update_item(args)
+    updateContent: async (parent, args, context) => {
+      var ret = await LibContent.update_item(args)
       return ret
     },
-    deleteTask: async (parent, args, context) => {
-      var ret = await LibTask.delete_item(args)
+    deleteContent: async (parent, args, context) => {
+      var ret = await LibContent.delete_item(args)
       return ret
     },
-    */
   }
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
-//await server.start();
 const app = express();
 server.applyMiddleware({ app });
 // ENV
