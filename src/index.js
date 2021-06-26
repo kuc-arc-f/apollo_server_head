@@ -2,6 +2,8 @@ const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 import LibTask from '../lib/LibTask'
 import LibContent from '../lib/LibContent'
+import LibUser from '../lib/LibUser'
+import LibSession from '../lib/LibSession'
 import {typeDefs} from './scheme'
 
 // Provide resolver functions for your schema fields
@@ -17,7 +19,15 @@ const resolvers = {
     async content_count(parent, args, context, info){
       return await LibContent.get_count(args);
     },
-
+    async users(){
+      return await LibUser.get_items();
+    },
+    async user(parent, args, context, info){
+      return await LibUser.get_item(args);
+    },
+    async session(parent, args, context, info){
+      return await LibSession.get_item(args);
+    },
   },
   Mutation: {
     addContent: async (parent, args, context) => {
@@ -32,6 +42,15 @@ const resolvers = {
       var ret = await LibContent.delete_item(args)
       return ret
     },
+    addSession: async (parent, args, context) => {
+      var ret = await LibSession.add_item(args)
+      return ret
+    },
+    deleteSession: async (parent, args, context) => {
+      var ret = await LibSession.delete_uid(args.user_id, args.key)
+      return ret
+    },
+
   }
 };
 

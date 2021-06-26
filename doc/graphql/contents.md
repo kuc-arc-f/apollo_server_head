@@ -12,6 +12,7 @@ query {
     id
     name
     values
+    created_at
   }
 }
 ***

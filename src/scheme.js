@@ -15,7 +15,20 @@ export const typeDefs = gql`
     id: String
     name: String
     values: String
-  }      
+    created_at: String
+  }
+  type User {
+    id: String
+    mail: String
+    name: String
+    password: String
+  } 
+  type Session {
+    id: String
+    user_id: String
+    key: String
+    value: String
+  }         
   ${GQL_QUERY}
   ${GQL_MUTATION}
 `;

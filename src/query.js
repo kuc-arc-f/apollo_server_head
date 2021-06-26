@@ -8,5 +8,9 @@ export const GQL_QUERY = `
     contents(site_id: String, content_name: String): [Content]
     content(id: String): Content
     content_count(site_id: String, content_name: String): Int
+    users: [User]
+    user(mail: String, password: String): User
+    sessions(user_id: String): [Session]
+    session(user_id: String, key: String): Session
   }
 `;
