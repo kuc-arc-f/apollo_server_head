@@ -13,6 +13,9 @@ const resolvers = {
     async contents(parent, args, context, info){
       return await LibContent.get_items(args);
     },
+    async contents_uid(parent, args, context, info){
+      return await LibContent.get_items(args);
+    },
     async content(parent, args, context, info){
       return await LibContent.get_item(args.id);
     },

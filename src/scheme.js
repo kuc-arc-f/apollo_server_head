@@ -15,6 +15,7 @@ export const typeDefs = gql`
     id: String
     name: String
     values: String
+    user_id: String
     created_at: String
   }
   type User {

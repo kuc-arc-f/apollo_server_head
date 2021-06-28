@@ -12,13 +12,26 @@ query {
     id
     name
     values
+    user_id
     created_at
   }
 }
 ***
 query {
-  content(id: "60d597caa266066086ab7980"){
+  contents_uid(site_id: "60d41b918e3ada3040be0bd5" , content_name:"tasks"
+    user_id: "60d67fb70160bf019dfe8169") {
     id
+    name
+    values
+    user_id
+    created_at
+  }
+}
+***
+query {
+  content(id: "60d958bd840e8f3cb79fab41"){
+    id
+    user_id
     values
   }
 }
@@ -29,7 +42,7 @@ query {
 ***
 mutation add {
   addContent( apikey: "MnszttA1V0mBdaTAgUSJqkPg", content_name: "tasks", 
-  values: "{\"title\":\"t4\",\"content\":\"c4\"}"
+  values: "{\"title\":\"t4\",\"content\":\"c4\"}" , user_id: "60d67fb70160bf019dfe8169"
   ) {
     id
   }

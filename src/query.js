@@ -6,6 +6,8 @@ export const GQL_QUERY = `
     tasks: [Task]
     task(id: String): Task
     contents(site_id: String, content_name: String): [Content]
+    contents_uid(site_id: String, content_name: String, user_id: String
+    ): [Content]
     content(id: String): Content
     content_count(site_id: String, content_name: String): Int
     users: [User]
